@@ -15,7 +15,7 @@ def f_search( func, func_name ):
   def message( number ):
     return 'The check for number "' + str( number ) + '" has returned '
   
-  print 'Checking ' + func_name + ' ... all results must return true.'
+  print 'Checking ' + func_name + '... all results must return true.'
 
   success1 = func( array_of_values, rand_num ) == index_num
 
@@ -25,4 +25,4 @@ def f_search( func, func_name ):
 
   print message( rand_num ) + str( success1 )
   print message( not_max ) + str( fail1 )
-  print message( not_min ) + str( fail2 )
+  print message( not_min ) + str( fail2 ) + '\n'

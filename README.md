@@ -1,6 +1,6 @@
 # Algorithms and Data Structures
 
-A single repository for Algorithms and Data Strutures, and written in Python.  
+A single repository for Algorithms and Data Strutures written in Python.  
 
 *_this repo is an emulation [yangshun/lago](https://github.com/yangshun/lago)_
 
@@ -35,9 +35,11 @@ A single repository for Algorithms and Data Strutures, and written in Python.
 
 #### Time Complexity
 A helpful reminder on Time Complexity using a graph.
+
 ![alt text](/assets/time_complexity_mini.svg "pretty graph")
 
 What this pretty graph is essentially saying, from best to worst:
+
 |Run Time|Ranking|
 |--|--|
 |O( 1 )|TUBULAR!| 
