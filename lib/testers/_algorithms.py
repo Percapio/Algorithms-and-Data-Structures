@@ -1,7 +1,7 @@
 import random
 
 ### Test Search Function
-def f_search( func, func_name ):
+def _search( func, func_name ):
   array_of_values = [1,3,5,6,7,9,12,15,16,20,21,22,23,32]
 
   # Search for true
@@ -27,7 +27,7 @@ def f_search( func, func_name ):
 
 
 ### Test Sort Functions
-def f_sort( func, func_name ):
+def _sort( func, func_name ):
   array_of_values = [1,3,5,6,7,9,12,15,16,20,21,22,23,32]
 
   # Scramble array

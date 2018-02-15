@@ -43,7 +43,7 @@ def recursive( array, target ):
 ######################################################
 
 # Iterative Binary Search
-# Time Complexity: O( n )
+# Time Complexity: O( logn )
 def iterative( array, target ):
   # location of target
   target_loc = -1

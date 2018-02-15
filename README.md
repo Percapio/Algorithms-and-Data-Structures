@@ -1,6 +1,6 @@
 # Algorithms and Data Structures
 
-A single repository for Algorithms and Data Strutures written in Python.  
+A single repository for Algorithms and Data Strutures written in Python.
 
 *_this repo is an emulation [yangshun/lago](https://github.com/yangshun/lago)_
 
@@ -8,10 +8,10 @@ A single repository for Algorithms and Data Strutures written in Python.
 * Search Algorithms:
   + [Binary Search](/lib/algorithms/binary_search.py)
 * Search N-th Term Algorithm:
-  + [Quickselect](/lib/algorithms/quick_select.py) **--need to redo**
+  + [Quickselect](/lib/algorithms/quick_select.py) **<--need to redo**
 * Sort Algorithms:
   + [Merge Sort](/lib/algorithms/merge_sort.py)
-  + Quicksort
+  + [Quicksort](/lib/algorithms/quick_sort.py)
   + Heap Sort
   + Timsort
   + Topological Sort

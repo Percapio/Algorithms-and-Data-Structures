@@ -55,31 +55,42 @@ def rec_sort( left, right ):
 ######################################################
 
 # Iterative Merge Sort
-# Time Complexity: O( n^2logn )
+# Time Complexity: O( nlogn )
 def iterative( array ):
-  # Flag to let us know when we're done
-  # gp  = 1
-  not_sorted = True
-  idx = 0
+  size = len(array)
+  i    = 1
 
   # Iterate, split, sort, merge, flag
-  # for gp in range( 0, len(array), gp*2 ):
-  while not_sorted:
-    for idx in range( 0, len(array) ):
-      left  = array[ :idx]
-      right = array[ idx: ]
+  while i < size:
 
-      # Sorting function
-      # if at any point the right side of the array had to
-      # be shift before the left, we have to go through
-      # the loop again
-      # print array
-      array, not_sorted = iter_sort( left, right )
+    # The while loop above determines the stepping size for
+    # each iteration.  We want to double the stepping size
+    # to locate the correct associated index positions for
+    # our sub-arrays
+    for j in range( 0, size, i + i ):
+
+      # Find our starting and stopping points
+      mid_idx = j + i
+      right_end = mid_idx + i
+
+      # Grab our sub-arrays to sort
+      left  = array[ j:mid_idx ]
+      right = array[ mid_idx:right_end ]
+
+      # Don't lose our existing elements
+      left_array  = array[ :j ]
+      right_array = array[ right_end: ]
+
+      # Call sorting function, and concat all of our arrays
+      array = left_array + iter_sort( left, right ) + right_array
+    
+    # Double again our base stepping size
+    i *= 2
+
   return array
 
 def iter_sort( left, right ):
   results = []
-  not_sorted = False
 
   # iterate until one of the two arrays runs out
   while len( left ) > 0 and len( right ) > 0:
@@ -89,14 +100,12 @@ def iter_sort( left, right ):
     if left[ 0 ] <= right[ 0 ]:
       shift_left = left[ 0 ]
       left       = left[ 1: ]
-      # not_sorted = True
       results.append( shift_left )
     else:
       shift_right = right[ 0 ]
       right       = right[ 1: ]
-      not_sorted  = True
       results.append( shift_right )
 
   # return all arrays concated
-  return results + left + right, not_sorted
+  return results + left + right
   
