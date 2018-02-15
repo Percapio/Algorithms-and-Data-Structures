@@ -5,18 +5,22 @@ A single repository for Algorithms and Data Strutures written in Python.
 *_this repo is an emulation [yangshun/lago](https://github.com/yangshun/lago)_
 
 #### Algorithms
-* [Binary Search](/lib/algorithms/binary_search.py)
-* Quickselect
-* Merge Sort
-* Quicksort
-* Heap Sort
-* Timsort
-* Topological Sort
-* Breadth First Search
-* Depth First Search
-* Djikstra's Algorithm
-* Bellman-Ford Algorithm
-* Floyd Warshall Algorithm
+* Search Algorithms:
+  + [Binary Search](/lib/algorithms/binary_search.py)
+  + [Quickselect](/lib/algorithms/quick_select.py)
+* Sort Algorithms:
+  + [Merge Sort](/lib/algorithms/merge_sort.py)
+  + Quicksort
+  + Heap Sort
+  + Timsort
+  + Topological Sort
+* Node Algorithms:
+  + Breadth First Search
+  + Depth First Search
+  + Djikstra's Algorithm
+* Extras:
+  + Bellman-Ford Algorithm
+  + Floyd Warshall Algorithm
 
 #### Data Structures
 * List

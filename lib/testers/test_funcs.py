@@ -13,16 +13,38 @@ def f_search( func, func_name ):
   not_min = 0
 
   def message( number ):
-    return 'The check for number "' + str( number ) + '" has returned '
+    return 'Search check for number "' + str( number ) + '" has returned '
   
-  print 'Checking ' + func_name + '... all results must return true.'
+  checking_message( func_name )
 
   success1 = func( array_of_values, rand_num ) == index_num
-
   fail1 = func( array_of_values, not_max ) == len( array_of_values )
-
   fail2 = func( array_of_values, not_min ) == 0
 
   print message( rand_num ) + str( success1 )
   print message( not_max ) + str( fail1 )
   print message( not_min ) + str( fail2 ) + '\n'
+
+
+### Test Sort Functions
+def f_sort( func, func_name ):
+  array_of_values = [1,3,5,6,7,9,12,15,16,20,21,22,23,32]
+
+  # Scramble array
+  copy_of_array = array_of_values[:]
+  random.shuffle( copy_of_array )
+
+  def message():
+    return 'Sort check "' + str( copy_of_array ) + '" and the outcome was '
+
+  checking_message( func_name )
+  success1 = func( copy_of_array ) == array_of_values
+  fail1    = func( copy_of_array ) != copy_of_array
+
+  print message() + str( success1 )
+  print message() + str( fail1 ) + '\n'
+
+
+### Utils
+def checking_message( func_name ):
+  print 'Checking ' + func_name + '...'

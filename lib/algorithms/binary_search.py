@@ -5,6 +5,7 @@
 # narrow the interval to the lower half. Otherwise narrow it to the upper 
 # half. Repeatedly check until the value is found or the interval is empty.
 
+######################################################
 
 # Recursive Binary Search
 # Time complexity: O( logn )
@@ -29,6 +30,9 @@ def recursive( array, target ):
     right_array = array[ mid_index + 1: ]
     return recursive( right_array, target ) + mid_index + 1
 
+######################################################
+
+######################################################
 
 # Iterative Binary Search
 # Time Complexity: O( n )

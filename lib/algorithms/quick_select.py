@@ -4,6 +4,8 @@
 # the indexed point. If it is then we check the right half of the list, otherwise
 # we check the left half.
 
+######################################################
+
 # Recursive Quick Select
 # Time Complexity: O( logn )
 def recursive( array, target ):
@@ -26,6 +28,10 @@ def recursive( array, target ):
   else:
     right_array = array[ pivot + 1: ]
     return recursive( right_array, target ) + 1 + pivot
+
+######################################################
+
+######################################################
 
 
 # Iterative Quick Select
