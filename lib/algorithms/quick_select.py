@@ -1,33 +1,30 @@
 # Quick Select:
-#   Search a sorted array/list by first indexing an element as the pivot point,
-# check if this index is our target.  If not, then check if target is more than
+#   Search an unsorted array/list by finding the nth smallest number
+# in an array.  First, we grab a pivot point ( some random el in the array).
+# Then we check if this index is our target.  If not, then check if target is more than
 # the indexed point. If it is then we check the right half of the list, otherwise
 # we check the left half.
 
 ######################################################
 
 # Recursive Quick Select
-# Time Complexity: O( logn )
+# Time Complexity: O( nlogn )
 def recursive( array, target ):
+  size = len( array )
+
   # Recursive, so always gotta have that base case
-  if len( array ) == 0:
-    return 0
+  if size == 1:
+    if array[ 0 ] == target:
+      return 1
+    else:
+      return -1
   
   # Grab our pivot point and check
-  pivot    = len( array ) / 2
-  pivot_el = array[ pivot ]
-  if pivot_el == target:
-    return pivot
+  pivot     = array[ size - 1]
+  if pivot == target:
+    return end_point
 
-  # If no go, we do our recursion by check whether the target value is either
-  # in the greater half of the list or the lower half based on whether the
-  # target value is more or less than pivot_el
-  if target < pivot_el:
-    left_array = array[ :pivot ]
-    return recursive( left_array, target )
-  else:
-    right_array = array[ pivot + 1: ]
-    return recursive( right_array, target ) + 1 + pivot
+  # If no go, we do iterate through, sor
 
 ######################################################
 

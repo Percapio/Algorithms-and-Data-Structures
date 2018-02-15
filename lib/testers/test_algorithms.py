@@ -18,8 +18,8 @@ def f_search( func, func_name ):
   checking_message( func_name )
 
   success1 = func( array_of_values, rand_num ) == index_num
-  fail1 = func( array_of_values, not_max ) == len( array_of_values )
-  fail2 = func( array_of_values, not_min ) == 0
+  fail1 = func( array_of_values, not_max ) == -1
+  fail2 = func( array_of_values, not_min ) == -1
 
   print message( rand_num ) + str( success1 )
   print message( not_max ) + str( fail1 )

@@ -7,7 +7,8 @@ A single repository for Algorithms and Data Strutures written in Python.
 #### Algorithms
 * Search Algorithms:
   + [Binary Search](/lib/algorithms/binary_search.py)
-  + [Quickselect](/lib/algorithms/quick_select.py)
+* Search N-th Term Algorithm:
+  + [Quickselect](/lib/algorithms/quick_select.py) **--need to redo**
 * Sort Algorithms:
   + [Merge Sort](/lib/algorithms/merge_sort.py)
   + Quicksort

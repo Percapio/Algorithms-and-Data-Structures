@@ -4,6 +4,7 @@
 # the search key is less than the item in the middle of the interval, 
 # narrow the interval to the lower half. Otherwise narrow it to the upper 
 # half. Repeatedly check until the value is found or the interval is empty.
+# Return -1 if the target value is not present in the array
 
 ######################################################
 
@@ -12,7 +13,7 @@
 def recursive( array, target ):
   # The base case, since this binary search is a recursive function
   if len( array ) == 0:
-    return 0
+    return -1
 
   # Grabbing middle value in the array to check if its the target
   mid_index = len( array ) / 2
@@ -26,9 +27,16 @@ def recursive( array, target ):
   if target < mid_value:
     left_array = array[ :mid_index ]
     return recursive( left_array, target )
+
   else:
     right_array = array[ mid_index + 1: ]
-    return recursive( right_array, target ) + mid_index + 1
+    result = recursive( right_array, target )
+
+    # If reached end, and nothing there, it is -1 all the way home
+    if result == -1:
+      return -1
+    else:
+      return result + mid_index + 1
 
 ######################################################
 
@@ -38,14 +46,14 @@ def recursive( array, target ):
 # Time Complexity: O( n )
 def iterative( array, target ):
   # location of target
-  target_loc = 0
+  target_loc = -1
 
   while( len( array ) > 0 ):
     # grab mid value in array to check if its target
     mid_index = len( array ) / 2
     mid_value = array[ mid_index ]
     if mid_value == target:
-      target_loc += mid_index
+      target_loc += mid_index + 1
       return target_loc
     
     # break down the array into parts for while loop to go back
@@ -56,4 +64,4 @@ def iterative( array, target ):
       target_loc += mid_index + 1
       array = array[ mid_index + 1: ]
 
-  return target_loc
+  return -1

@@ -10,12 +10,14 @@
 # Recursive Merge Sort
 # Time Complexity: O( nlogn )
 def recursive( array ):
+  size = len( array )
+
   # Recursion requires base case
-  if len( array ) == 1:
+  if size == 1:
     return array
 
   # Middle index
-  midpoint = len( array ) / 2
+  midpoint = size / 2
 
   # split array
   left_array  = array[ :midpoint ]
@@ -53,16 +55,17 @@ def rec_sort( left, right ):
 ######################################################
 
 # Iterative Merge Sort
-# Time Complexity: O( nlogn )
+# Time Complexity: O( n^2logn )
 def iterative( array ):
   # Flag to let us know when we're done
+  # gp  = 1
   not_sorted = True
-  gp  = 1
   idx = 0
 
   # Iterate, split, sort, merge, flag
-  for gp in range( 1, len(array), gp*2 ):
-    for idx in range( 0, len(array), idx+2 ):
+  # for gp in range( 0, len(array), gp*2 ):
+  while not_sorted:
+    for idx in range( 0, len(array) ):
       left  = array[ :idx]
       right = array[ idx: ]
 
@@ -70,15 +73,12 @@ def iterative( array ):
       # if at any point the right side of the array had to
       # be shift before the left, we have to go through
       # the loop again
+      # print array
       array, not_sorted = iter_sort( left, right )
-
   return array
 
 def iter_sort( left, right ):
   results = []
-
-  # Mini flag to check if all values in left array is
-  # lower than all values of right array, and sorted
   not_sorted = False
 
   # iterate until one of the two arrays runs out
@@ -89,6 +89,7 @@ def iter_sort( left, right ):
     if left[ 0 ] <= right[ 0 ]:
       shift_left = left[ 0 ]
       left       = left[ 1: ]
+      # not_sorted = True
       results.append( shift_left )
     else:
       shift_right = right[ 0 ]
