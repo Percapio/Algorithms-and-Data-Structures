@@ -1,1 +1,56 @@
-# Algorithms-and-Data-Structures
+# Algorithms and Data Structures
+
+A single repository for Algorithms and Data Strutures, and written in Python.  
+
+*_this repo is an emulation [yangshun/lago](https://github.com/yangshun/lago)_
+
+#### Algorithms
+* [Binary Search](/lib/algorithms/binary_search.py)
+* Quickselect
+* Merge Sort
+* Quicksort
+* Heap Sort
+* Timsort
+* Topological Sort
+* Breadth First Search
+* Depth First Search
+* Djikstra's Algorithm
+* Bellman-Ford Algorithm
+* Floyd Warshall Algorithm
+
+#### Data Structures
+* List
+* Stack
+* Queue
+* Double-ended Queue
+* Trie
+* Binary Tree
+* Binary Search Tree
+* AVL Tree
+* Suffix Tree
+* Segment Tree
+* Graphs
+* N-D arrays
+* Bloom Filter
+
+#### Time Complexity
+A helpful reminder on Time Complexity using a graph.
+![alt text](/assets/time_complexity_mini.svg "pretty graph")
+
+What this pretty graph is essentially saying, from best to worst:
+|Run Time|Ranking|
+|--|--|
+|O( 1 )|TUBULAR!| 
+|O( logn )|AWESOME!|
+|O( n )|meh|
+|O( nlogn )|Not good...|
+|O( n^2 )|Terrible.|
+
+#### Running
+This repo requires Python 2.x installed.
+Clone the repo, and run:
+```
+python lib/index.py
+```
+
+Test functions are under ```index/testers```.
