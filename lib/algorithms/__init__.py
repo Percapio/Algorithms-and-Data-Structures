@@ -1,1 +1,1 @@
-__all__ = ['binary_search', 'quick_select', 'merge_sort', 'quick_sort']
+__all__ = ['binary_search', 'quick_select', 'merge_sort', 'quick_sort', 'heap_sort']

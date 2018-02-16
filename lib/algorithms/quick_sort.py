@@ -9,9 +9,9 @@
 # Recursive Quick Sort
 # Time Complexity: O( nlogn )
 def recursive( array ):
-  # Recursive requires base case
   size = len( array )
 
+  # Recursive requires base case
   if size <= 1:
     return array
 
@@ -29,6 +29,8 @@ def recursive( array ):
     else:
       right.append( array[ i ] )
 
+  # Recursive call this function on left and right and concat
+  # results together
   return recursive( left ) + [ pivot ] + recursive( right )  
 
 ######################################################
@@ -36,5 +38,37 @@ def recursive( array ):
 ######################################################
 
 # Iterative Quick Sort
-# Time Complexity: O( nlogn )
-# def iterative( array ):
+# Time Complexity: O( n^2 )
+def iterative( array ):
+  # Initiate the topmost
+  top = len( array ) - 1
+
+  while top >= 0:
+    pivot = array[ top ]
+
+    # Make sure to reset our array with sub-arrays concated
+    # with the pivot point
+    l_left, l_right = sorting( array[ :top ], pivot )
+    r_left, r_right = sorting( array[ top+1: ], pivot )
+
+    array = l_left + r_left + [ pivot ] + l_right + r_right
+
+    # Reduce the step by one
+    top -= 1
+
+  return array
+
+def sorting( array, pivot ):
+  left  = []
+  right = []
+
+  if len( array ) == 0:
+    return left, right
+
+  for i in range( 0, len(array) ):
+    if array[ i ] < pivot:
+      left.append( array[ i ] )
+    else:
+      right.append( array[ i ] )
+  
+  return left, right

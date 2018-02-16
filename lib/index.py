@@ -21,6 +21,7 @@ def run_all_functions():
 
   # Quick Sort
   _algorithms._sort( quick_sort.recursive, 'Recursive Quick Sort' )
+  _algorithms._sort( quick_sort.iterative, 'Iterative Quick Sort' )
 
 if __name__ == "__main__":
   run_all_functions()

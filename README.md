@@ -12,7 +12,7 @@ A single repository for Algorithms and Data Strutures written in Python.
 * Sort Algorithms:
   + [Merge Sort](/lib/algorithms/merge_sort.py)
   + [Quicksort](/lib/algorithms/quick_sort.py)
-  + Heap Sort
+  + [Heap Sort](/lib/algorithms/heap_sort.py)
   + Timsort
   + Topological Sort
 * Node Algorithms:
