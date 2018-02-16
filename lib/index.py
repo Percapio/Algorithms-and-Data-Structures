@@ -9,10 +9,9 @@ def run_all_functions():
   _algorithms._search( binary_search.recursive, 'Recursive Binary Search' )
   _algorithms._search( binary_search.iterative, 'Iterative Binary Search' )
 
-  # print 'Search n-th smallest number functions:'
   # Quick Select
-  # _algorithms._search( quick_select.recursive, 'Recursive Quick Select' )
-  # _algorithms._search( quick_select.iterative, 'Iterative Quick Select' )
+  _algorithms._search( quick_select.recursive, 'Recursive Quick Select' )
+  _algorithms._search( quick_select.iterative, 'Iterative Quick Select' )
 
   print 'Sort functions:\n'
   # Merge Sort

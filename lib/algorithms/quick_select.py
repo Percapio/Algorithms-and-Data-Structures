@@ -3,33 +3,54 @@
 # in an array.  First, we grab a pivot point ( some random el in the array).
 # Then we check if this index is our target.  If not, then check if target is more than
 # the indexed point. If it is then we check the right half of the list, otherwise
-# we check the left half.
+# we check the left half.  If its not there, return -1.
 
 ######################################################
 
 # Recursive Quick Select
 # Time Complexity: O( nlogn )
-def recursive( array, target ):
-  size = len( array )
+def recursive( array, n ):
+  end_pos = len( array ) - 1
 
-  # Recursive, so always gotta have that base case
-  if size == 1:
-    if array[ 0 ] == target:
-      return 1
+  if end_pos <= 1:
+    return array
+
+  r_index, array = partition( array, n )
+
+  position = r_index + 1
+
+  if position == n:
+    return array[ r_index ]
+  elif n < position:
+    return recursive( array[ 0:r_index ], n )
+  elif n > position:
+    return recursive( array[ position: ], n )
+  else:
+    return -1
+
+def partition( array, n ):
+  size  = len( array )
+  pivot = array[ size - 1 ]
+
+  left   = []
+  right  = []
+  r_mark = 0
+
+  for i in range( size ):
+    if array[ i ] < pivot:
+      left.append( array[ i ] )
+      
+      if len( array ) == n:
+        r_mark = i
+
     else:
-      return -1
+      right.append( array[ i ] )
   
-  # Grab our pivot point and check
-  pivot     = array[ size - 1]
-  if pivot == target:
-    return end_point
-
-  # If no go, we do iterate through, sor
+  return r_mark, array
 
 ######################################################
 
 ######################################################
-
 
 # Iterative Quick Select
 # Time Complexity: O( n )

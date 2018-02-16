@@ -1,50 +1,47 @@
-import random
+from utils import *
 
-### Test Search Function
+### TEST Search Function
 def _search( func, func_name ):
-  array_of_values = [1,3,5,6,7,9,12,15,16,20,21,22,23,32]
+  # Initiate array and target values
+  array_of_values, shuffled_array = random_array()
+  rand_num, index_num, not_max, not_min = target_array( array_of_values )
 
-  # Search for true
-  rand_num  = random.choice( array_of_values )
-  index_num = array_of_values.index( rand_num ) 
+  # Either Binary or Quick Select
+  input_array = ''
+  input_value = ''
 
-  # Search for false
-  not_max = max( array_of_values ) + 1
-  not_min = 0
+  if func_name == 'Recursive Binary Search' or func_name == 'Iterative Binary Search':
+    input_array = array_of_values
+    input_value = rand_num
 
-  def message( number ):
-    return 'Search check for number "' + str( number ) + '" has returned '
+  elif func_name == 'Recursive Quick Select' or func_name == 'Iterative Quick Select':
+    input_array  = shuffled_array
+    input_value  = index_num + 1
   
+  # Check if numbers in, and not in, all return true, and messages
   checking_message( func_name )
 
-  success1 = func( array_of_values, rand_num ) == index_num
-  fail1 = func( array_of_values, not_max ) == -1
-  fail2 = func( array_of_values, not_min ) == -1
+  success1 = func( input_array, input_value ) == index_num
+  print message( 'Search', rand_num ) + str( success1 )
 
-  print message( rand_num ) + str( success1 )
-  print message( not_max ) + str( fail1 )
-  print message( not_min ) + str( fail2 ) + '\n'
+  fail1    = func( input_array, not_max )     == -1
+  print message( 'Search', not_max ) + str( fail1 )
+  
+  fail2    = func( input_array, not_min )     == -1
+  print message( 'Search', not_min ) + str( fail2 ) + '\n'
 
 
-### Test Sort Functions
+### TEST Sort Functions
 def _sort( func, func_name ):
-  array_of_values = [1,3,5,6,7,9,12,15,16,20,21,22,23,32]
+  # Initate array and scrambled array
+  array_of_values, shuffled_array = random_array()
 
-  # Scramble array
-  copy_of_array = array_of_values[:]
-  random.shuffle( copy_of_array )
-
-  def message():
-    return 'Sort check "' + str( copy_of_array ) + '" and the outcome was '
-
+  # Outgoing messages
   checking_message( func_name )
-  success1 = func( copy_of_array ) == array_of_values
-  fail1    = func( copy_of_array ) != copy_of_array
 
-  print message() + str( success1 )
-  print message() + str( fail1 ) + '\n'
+  # Check if sorted and unsorted to return true, and messages
+  success1 = func( shuffled_array ) == array_of_values
+  print message( 'Sort', shuffled_array ) + str( success1 )
 
-
-### Utils
-def checking_message( func_name ):
-  print 'Checking ' + func_name + '...'
+  fail1    = func( shuffled_array ) != shuffled_array
+  print message( 'Sort', shuffled_array ) + str( fail1 ) + '\n'

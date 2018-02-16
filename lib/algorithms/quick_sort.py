@@ -15,6 +15,14 @@ def recursive( array ):
   if size <= 1:
     return array
 
+  # Partition the array for sorting
+  left, right, pivot = partition( array, size )
+
+  # Recursive call this function on left and right and concat
+  # results together
+  return recursive( left ) + [ pivot ] + recursive( right )  
+
+def partition( array, size ):
   # Pivot point to compare elements too
   pivot = array[ 0 ]
 
@@ -29,9 +37,7 @@ def recursive( array ):
     else:
       right.append( array[ i ] )
 
-  # Recursive call this function on left and right and concat
-  # results together
-  return recursive( left ) + [ pivot ] + recursive( right )  
+  return left, right, pivot
 
 ######################################################
 
@@ -40,32 +46,24 @@ def recursive( array ):
 # Iterative Quick Sort
 # Time Complexity: O( n^2 )
 def iterative( array ):
-  # Initiate the topmost
-  top = len( array ) - 1
+  # push the array onto a stack
+  stack = array[:]
+  size  = len( stack )
 
-  while top >= 0:
-    pivot = array[ top ]
+  while size > 0:
+    size -= 1
+    pivot = stack[ size ]
 
-    # Make sure to reset our array with sub-arrays concated
-    # with the pivot point
-    l_left, l_right = sorting( array[ :top ], pivot )
-    r_left, r_right = sorting( array[ top+1: ], pivot )
-
-    array = l_left + r_left + [ pivot ] + l_right + r_right
-
-    # Reduce the step by one
-    top -= 1
-
+    left, right = partition_iter( array, pivot )
+    array = left + right
+  
   return array
 
-def sorting( array, pivot ):
+def partition_iter( array, pivot ):
   left  = []
   right = []
 
-  if len( array ) == 0:
-    return left, right
-
-  for i in range( 0, len(array) ):
+  for i in range( len(array) ):
     if array[ i ] < pivot:
       left.append( array[ i ] )
     else:
