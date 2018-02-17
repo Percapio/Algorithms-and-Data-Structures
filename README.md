@@ -24,13 +24,13 @@ A single repository for Algorithms and Data Strutures written in Python.
   + Floyd Warshall Algorithm
 
 #### Data Structures
-* List
+* [List](/lib/data_structures/list.py)
 * Stack
 * Queue
 * Double-ended Queue
-* Trie
 * Binary Tree
 * Binary Search Tree
+* Trie
 * AVL Tree
 * Suffix Tree
 * Segment Tree

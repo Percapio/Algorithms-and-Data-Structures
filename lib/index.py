@@ -10,7 +10,7 @@ def run_all_functions():
   _algorithms._search( binary_search.iterative, 'Iterative Binary Search' )
 
   # Quick Select
-  _algorithms._search( quick_select.recursive, 'Recursive Quick Select' )
+  # _algorithms._search( quick_select.recursive, 'Recursive Quick Select' )
   _algorithms._search( quick_select.iterative, 'Iterative Quick Select' )
 
   print 'Sort functions:\n'

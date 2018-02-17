@@ -1,1 +1,1 @@
-__all__ = ['_algorithms']
+__all__ = ['_algorithms', '_data_structures']

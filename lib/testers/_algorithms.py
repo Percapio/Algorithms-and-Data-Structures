@@ -7,27 +7,25 @@ def _search( func, func_name ):
   rand_num, index_num, not_max, not_min = target_array( array_of_values )
 
   # Either Binary or Quick Select
-  input_array = ''
-  input_value = ''
+  success1 = ''
+  fail1    = ''
+  fail2    = ''
 
   if func_name == 'Recursive Binary Search' or func_name == 'Iterative Binary Search':
-    input_array = array_of_values
-    input_value = rand_num
+    success1 = func( array_of_values, rand_num ) == index_num
+    fail1    = func( array_of_values, not_max )  == -1
+    fail2    = func( array_of_values, not_min )  == -1
 
   elif func_name == 'Recursive Quick Select' or func_name == 'Iterative Quick Select':
-    input_array  = shuffled_array
-    input_value  = index_num + 1
+    success1 = func( shuffled_array, index_num ) == rand_num
+    fail1    = func( shuffled_array, not_max )   == -1
+    fail2    = func( shuffled_array, not_min )   == -1
   
   # Check if numbers in, and not in, all return true, and messages
   checking_message( func_name )
 
-  success1 = func( input_array, input_value ) == index_num
   print message( 'Search', rand_num ) + str( success1 )
-
-  fail1    = func( input_array, not_max )     == -1
-  print message( 'Search', not_max ) + str( fail1 )
-  
-  fail2    = func( input_array, not_min )     == -1
+  print message( 'Search', not_max ) + str( fail1 )  
   print message( 'Search', not_min ) + str( fail2 ) + '\n'
 
 

@@ -50,12 +50,14 @@ def iterative( array ):
   stack = array[:]
   size  = len( stack )
 
+  # iterate until stack is empty
   while size > 0:
+    # decrease stack size, and use size as index for pivot
     size -= 1
     pivot = stack[ size ]
 
-    left, right = partition_iter( array, pivot )
-    array = left + right
+    # partition the given array around the pivot point
+    array = partition_iter( array, pivot )
   
   return array
 
@@ -63,10 +65,12 @@ def partition_iter( array, pivot ):
   left  = []
   right = []
 
+  # step through the array, and partition based on 
   for i in range( len(array) ):
     if array[ i ] < pivot:
       left.append( array[ i ] )
     else:
       right.append( array[ i ] )
   
-  return left, right
+  # concat
+  return left + right
