@@ -12,6 +12,10 @@ class Node:
   def __init__( self, initial_data ):
     self.data = initial_data
     self.next = None
+
+    #   For Doubly Linked List, we add last to allow for
+    # backward traversal.
+    self.last = None
   
   def get_data( self ):
     return self.data
@@ -24,6 +28,14 @@ class Node:
 
   def set_next( self, new_next ):
     self.next = new_next
+
+  #   For Doubly Linked List, we add last methods to allow
+  # for traversal.
+  def get_last( self ):
+    return self.last
+
+  def set_last( self, new_last ):
+    self.last = new_last
 
 #   Next, we create a Singly Class that will create, point,
 # display, delete, and remove the Nodes in a single list.
@@ -103,7 +115,6 @@ class SinglyList:
 
     # Iterate until Null / None
     while current != None:
-
       # Iterate key
       count += 1
 
@@ -112,10 +123,13 @@ class SinglyList:
       # current Node to that node
       if count == key:
         temp = current.get_next().get_next()
-        
+
         current.set_next( temp )
+        
         return 'Removal of node successful.'
-      
+
+      current = current.get_next()
+
     return 'No node associated with key.'
 
   def insert( self, key, data ):
@@ -138,3 +152,97 @@ class SinglyList:
       count += 1
 
     return 'Insertion failed.'
+
+class DoublyList:
+  def __init__( self ):
+    self.head = None
+  
+  def is_empty( self ):
+    return self.head == None
+
+  def add( self, new_data ):
+    new_head  = Node( new_data )
+    new_head.set_next( self.head )
+    self.head = new_head
+
+  def size( self ):
+    current = self.head
+    count   = 0
+
+    while current != None: 
+      count  += 1
+      current = current.get_next()
+    
+    return count
+
+  def display( self ):
+    current = self.head
+    count   = 0 
+    ouput   = {}
+
+    while current != None:
+      ouput[ count ] = current.data 
+      count  += 1
+      current = current.get_next()
+    
+    return ouput
+  
+  def delete( self ):
+    current   = self.head
+    self.head = current.get_next()
+    self.head.set_last( current.get_last() )
+  
+  def search( self, key ):
+    current = self.head
+    count   = 0
+
+    while current != None:
+      if count == key:
+        return current
+      
+      count += 1
+      current = current.get_next()
+    
+    return 'Not present'
+
+  def remove( self, key ):
+    current = self.head
+    count   = 0
+
+    while current != None:
+      count += 1
+
+      if count == key:
+        next_node = current.get_next().get_next()
+        last_node = current.get_last()
+
+        current.set_next( next_node )
+        current.set_last( last_node )
+
+        return 'Removed data at ' + str( key )
+      
+      current = current.get_next()
+    
+    return 'Removal of node failed.'
+
+  def insert( self, key, data ):
+    current = self.head
+    count   = 0
+
+    while current != None:
+      count += 1
+
+      if count == key:
+        next_node = current.get_next()
+        last_node = current.get_last()
+
+        current   = Node( data )
+        current.set_next( next_node )
+        current.set_last( last_node )
+
+        next_node.set_last( current )
+        last_node.set_next( current )
+
+        return 'Inserted data at ' + key
+    
+    return 'Failed to insert data.'

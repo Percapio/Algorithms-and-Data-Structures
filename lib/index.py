@@ -26,6 +26,7 @@ def run_all_functions():
   print 'Calling Data Structures functions.  Everything must pass.'
   print 'Linked Lists:'
   _data_structures._singly( linked.SinglyList, 'Singly Linked List' )
+  _data_structures._singly( linked.DoublyList, 'Doubly Linked List' )
 
 
 if __name__ == "__main__":

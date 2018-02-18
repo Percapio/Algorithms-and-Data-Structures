@@ -35,9 +35,10 @@ def _singly( _class, _class_name ):
   linked.remove(2)
 
   print 'Display full list:' + str( linked.display() )
-  
+
   print 'Insert data into specific key location'
   print 'Inserting...'
+  print 'Data 2 at Key 2:'
   linked.insert(2, 2)
 
   print 'Display full list:' + str( linked.display() )
