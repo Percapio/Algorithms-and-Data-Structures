@@ -2,7 +2,7 @@ import random
 
 ### Utils
 def message( _type, _input ):
-  return _type + ' check for "' + str( _input ) + '" has returned '
+  return _type + ' check for "' + str( _input ) + '"... '
 
 
 def checking_message( func_name ):
@@ -27,3 +27,15 @@ def target_array( array_of_values ):
   not_min = 0
 
   return rand_num, index_num, not_max, not_min
+
+def print_row( left, right ):
+  print '%-65s %31s' %( left, right )
+
+def pass_check( method, target ):
+  return is_true( method == target )
+
+def is_true( boolean ):
+  if boolean == True:
+    return 'Pass'
+  else:
+    return 'Fail'

@@ -4,8 +4,10 @@ from data_structures import *
 from testers import *
 
 def run_all_functions():
-  print '\nCalling Algorithm functions.  All results must return true.'
+  print '\nCalling Algorithm functions.  All results must pass.'
   print 'Search functions:\n'
+  print 'Array to test ' + str( [1,3,5,6,7,9,12,15,16,20,21,22,23,32] )
+  
   # Binary Search
   _algorithms._search( binary_search.recursive, 'Recursive Binary Search' )
   _algorithms._search( binary_search.iterative, 'Iterative Binary Search' )

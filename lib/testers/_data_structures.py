@@ -1,45 +1,44 @@
+from utils import *
+
 def _singly( _class, _class_name ):
-  print 'Performing ' + _class_name + ':'
+  print 'Performing ' + _class_name + ' basic operations:\n'
   linked = _class()
 
-  print 'Performing basic operations.'
-  print 'Add at beginning of list.'
-  print 'Adding...'
-  linked.add(4)
-  linked.add(3)
-  linked.add(2)
-  linked.add(1)
-  linked.add(0)
+  print 'Add at beginning of list.'  
+  for i in range( 4, -1, -1 ):
+    print_row( 'Adding...', str( i ) )
+    linked.add( i )
 
   print 'Attempted to added 4, 3, 2, 1, 0 to linked list.'
-  print 'Count if 5 nodes are in linked list...'
-  print  str( linked.size() )
+  print_row( 'Count if 5 nodes are in linked list...', pass_check( linked.size(), 5 ))
 
-  print 'Display full list:' + str( linked.display() )
+  display_list( linked )
 
   print 'Deletion at beginning of list.'
-  print 'Deleting...'
   linked.delete()
+  check = pass_check( linked.display(), {0: 1, 1: 2, 2: 3, 3: 4} )
+  print_row( 'Deleting first node...', check )
 
-  print 'Display full list:' + str( linked.display() )
+  display_list( linked )
 
   print 'Search for an element with given key.'
-  print 'Searching...'
-  print 'key: 2 returns ' + str( linked.search(2) )
+  check = pass_check( linked.search( 2 ), 3 )
+  print_row( 'Searching for key 2...', check )
 
-  print 'Display full list:' + str( linked.display() )
+  display_list( linked )
 
   print 'Delete an element with given key.'
-  print 'Deleting...'
-  print 'key: 2'
-  linked.remove(2)
+  check = pass_check( linked.remove( 2 ), True ) 
+  print_row( 'Deleting node at key 2...', check )
 
-  print 'Display full list:' + str( linked.display() )
+  display_list( linked )
 
   print 'Insert data into specific key location'
-  print 'Inserting...'
-  print 'Data 2 at Key 2:'
-  linked.insert(2, 2)
+  check = pass_check( linked.insert( 2, 2 ), {2: 2} )
+  print_row( 'Inserting data 2 at key 2...', check )
 
-  print 'Display full list:' + str( linked.display() )
-  print 'Test Complete'
+  display_list( linked )
+
+def display_list( linked ):
+  print_row( 'Display full list:', str( linked.display() ))
+  print '\n'

@@ -94,6 +94,7 @@ class SinglyList:
       return 'Error: List is empty.'
     else:
       self.head = self.head.get_next()
+      return self.head
 
   def search( self, key ):
     current = self.head
@@ -126,11 +127,11 @@ class SinglyList:
 
         current.set_next( temp )
         
-        return 'Removal of node successful.'
+        return True
 
       current = current.get_next()
 
-    return 'No node associated with key.'
+    return False
 
   def insert( self, key, data ):
     current = self.head
@@ -147,11 +148,11 @@ class SinglyList:
         # Point current node to this node
         current.set_next( new_node )
 
-        return 'Insertion of node successful.'
+        return { count: new_node.get_data() }
       
       count += 1
 
-    return 'Insertion failed.'
+    return False
 
 class DoublyList:
   def __init__( self ):
@@ -163,6 +164,10 @@ class DoublyList:
   def add( self, new_data ):
     new_head  = Node( new_data )
     new_head.set_next( self.head )
+
+    if self.head != None:
+      self.head.set_last( new_head )
+      
     self.head = new_head
 
   def size( self ):
@@ -190,7 +195,7 @@ class DoublyList:
   def delete( self ):
     current   = self.head
     self.head = current.get_next()
-    self.head.set_last( current.get_last() )
+    return self.head
   
   def search( self, key ):
     current = self.head
@@ -198,32 +203,31 @@ class DoublyList:
 
     while current != None:
       if count == key:
-        return current
+        return current.get_data()
       
       count += 1
       current = current.get_next()
     
-    return 'Not present'
+    return False
 
   def remove( self, key ):
     current = self.head
     count   = 0
 
     while current != None:
-      count += 1
-
       if count == key:
-        next_node = current.get_next().get_next()
+        next_node = current.get_next()
         last_node = current.get_last()
 
-        current.set_next( next_node )
-        current.set_last( last_node )
+        next_node.set_last( last_node )
+        last_node.set_next( next_node )
 
-        return 'Removed data at ' + str( key )
+        return True
       
+      count += 1
       current = current.get_next()
     
-    return 'Removal of node failed.'
+    return False
 
   def insert( self, key, data ):
     current = self.head
@@ -233,7 +237,7 @@ class DoublyList:
       count += 1
 
       if count == key:
-        next_node = current.get_next()
+        next_node = current
         last_node = current.get_last()
 
         current   = Node( data )
@@ -243,6 +247,6 @@ class DoublyList:
         next_node.set_last( current )
         last_node.set_next( current )
 
-        return 'Inserted data at ' + key
+        return { key: current.get_data() }
     
     return 'Failed to insert data.'
