@@ -1,9 +1,10 @@
 from algorithms import *
+from data_structures import *
 
 from testers import *
 
 def run_all_functions():
-  print '\nCalling all functions.  All results must return true.'
+  print '\nCalling Algorithm functions.  All results must return true.'
   print 'Search functions:\n'
   # Binary Search
   _algorithms._search( binary_search.recursive, 'Recursive Binary Search' )
@@ -21,6 +22,11 @@ def run_all_functions():
   # Quick Sort
   _algorithms._sort( quick_sort.recursive, 'Recursive Quick Sort' )
   _algorithms._sort( quick_sort.iterative, 'Iterative Quick Sort' )
+
+  print 'Calling Data Structures functions.  Everything must pass.'
+  print 'Linked Lists:'
+  _data_structures._singly( linked.SinglyList, 'Singly Linked List' )
+
 
 if __name__ == "__main__":
   run_all_functions()
