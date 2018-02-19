@@ -33,5 +33,8 @@ def run_all_functions():
   print 'Stack:'
   _data_structures._stack( stacked.Stack, 'Stack' )
 
+  print 'Queue:'
+  _data_structures._queue( queue.Queue, 'Queue' )
+
 if __name__ == "__main__":
   run_all_functions()

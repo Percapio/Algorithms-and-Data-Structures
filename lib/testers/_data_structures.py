@@ -59,3 +59,26 @@ def _stack( _class, _class_name ):
   print_row( 'Deleting first node...', check )
 
   display_data( stack )
+
+def _queue( _class, _class_name ):
+  print 'Performing ' + _class_name + ' basic operations:\n'
+  queue = _class()
+
+  print 'Add 4, 3, 2, 1, 0 to back of queue.'
+  for i in range( 4, -1, -1 ):
+    check = pass_check( queue.enqueue( i ), i )
+    print_row( 'Adding...', check )
+
+  print 'Peek at front node.'
+  check = queue.peek()
+  print_row( 'Peeking...', queue.peek() )
+  print_row( 'Returns 4', pass_check( check, 4 ) )
+
+  display_data( queue )
+
+  print 'Delete from front of queue.'
+  queue.dequeue()
+  check = pass_check( queue.display(), {0: 3, 1: 2, 2: 1, 3: 0} )
+  print_row( 'Deleting first node...', check )
+
+  display_data( queue )

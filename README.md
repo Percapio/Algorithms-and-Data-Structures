@@ -9,10 +9,10 @@ A single repository for Algorithms and Data Strutures written in Python.
   + [Binary Search](/lib/algorithms/binary_search.py)
 * Search N-th Term Algorithm:
   + [Quickselect](/lib/algorithms/quick_select.py) **<--need to redo**
-* Sort Algorithms:
+* Sorting Algorithms:
   + [Merge Sort](/lib/algorithms/merge_sort.py)
   + [Quicksort](/lib/algorithms/quick_sort.py)
-  + [Heap Sort](/lib/algorithms/heap_sort.py)
+  + Heap Sort
   + Timsort
   + Topological Sort
 * Node Algorithms:
@@ -24,9 +24,9 @@ A single repository for Algorithms and Data Strutures written in Python.
   + Floyd Warshall Algorithm
 
 #### Data Structures
-* [List](/lib/data_structures/list.py)
+* [List](/lib/data_structures/linked.py)
 * [Stack](/lib/data_structures/stacked.py)
-* Queue
+* [Queue](/lib/data_structures/queue.py)
 * Double-ended Queue
 * Binary Tree
 * Binary Search Tree

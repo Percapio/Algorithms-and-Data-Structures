@@ -1,1 +1,1 @@
-__all__ = ['linked','stacked']
+__all__ = ['linked','stacked','queue']
