@@ -1,46 +1,12 @@
+from node import *
+
 # Linked Lists:
 #   An ordered set of data elements, each containing a 
 # link to its successor (and sometimes its predecessor).
 
-#   For a Singly Linked List, we create a Node Class which 
-# contains the data and it holds a reference to the next
-# Node.  Then we create the methods necessary for a basic
-# Node, which includes, get data, get next, set data, and
-# set next.
-
-class Node:
-  def __init__( self, initial_data ):
-    self.data = initial_data
-    self.next = None
-
-    #   For Doubly Linked List, we add last to allow for
-    # backward traversal.
-    self.last = None
-  
-  def get_data( self ):
-    return self.data
-
-  def get_next( self ):
-    return self.next
-
-  def set_data( self, new_data ):
-    self.data = new_data
-
-  def set_next( self, new_next ):
-    self.next = new_next
-
-  #   For Doubly Linked List, we add last methods to allow
-  # for traversal.
-  def get_last( self ):
-    return self.last
-
-  def set_last( self, new_last ):
-    self.last = new_last
-
-#   Next, we create a Singly Class that will create, point,
-# display, delete, and remove the Nodes in a single list.
-# A Singly List can only perform all of the above functions
-# in a single direction.
+#   A Singly Linked List can only traverse along each node in
+# the list in one direction.  The class will require methods:
+# create, point, display, delete, and remove.
 
 class SinglyList:
   def __init__( self ):
@@ -154,6 +120,11 @@ class SinglyList:
 
     return False
 
+
+#   A Doubly Linked List can only traverse each node in the
+# list in two directions.  The class will require methods:
+# create, point, display, delete, and remove.
+
 class DoublyList:
   def __init__( self ):
     self.head = None
@@ -167,7 +138,7 @@ class DoublyList:
 
     if self.head != None:
       self.head.set_last( new_head )
-      
+
     self.head = new_head
 
   def size( self ):

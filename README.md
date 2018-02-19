@@ -25,7 +25,7 @@ A single repository for Algorithms and Data Strutures written in Python.
 
 #### Data Structures
 * [List](/lib/data_structures/list.py)
-* Stack
+* [Stack](/lib/data_structures/stacked.py)
 * Queue
 * Double-ended Queue
 * Binary Tree

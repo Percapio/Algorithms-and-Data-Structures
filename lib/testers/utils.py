@@ -39,3 +39,7 @@ def is_true( boolean ):
     return 'Pass'
   else:
     return 'Fail'
+
+def display_data( data ):
+  print_row( 'Display all data:', str( data.display() ))
+  print ''
