@@ -35,6 +35,7 @@ def run_all_functions():
 
   print 'Queue:'
   _data_structures._queue( queue.Queue, 'Queue' )
+  _data_structures._double_queue( queue.DoubleQueue, 'Double Queue')
 
 if __name__ == "__main__":
   run_all_functions()

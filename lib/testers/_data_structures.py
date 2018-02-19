@@ -71,7 +71,7 @@ def _queue( _class, _class_name ):
 
   print 'Peek at front node.'
   check = queue.peek()
-  print_row( 'Peeking...', queue.peek() )
+  print_row( 'Peeking...', check )
   print_row( 'Returns 4', pass_check( check, 4 ) )
 
   display_data( queue )
@@ -80,5 +80,47 @@ def _queue( _class, _class_name ):
   queue.dequeue()
   check = pass_check( queue.display(), {0: 3, 1: 2, 2: 1, 3: 0} )
   print_row( 'Deleting first node...', check )
+
+  display_data( queue )
+
+def _double_queue( _class, _class_name ):
+  print 'Performing ' + _class_name + ' basic operations:\n'
+  queue = _class()
+
+  print 'Add 0 thru 2 to front of queue.'
+  for i in range( 2, -1, -1 ):
+    check = pass_check( queue.add_front( i ), i )
+    print_row( 'Adding...', check )
+
+  print 'Add 4 thru 3 to back of queue.'
+  for i in range( 3, 5 ):
+    check = pass_check( queue.enqueue( i ), i )
+    print_row( 'Adding...', check )
+
+  display_data( queue )
+
+  print 'Peek at front node.'
+  check = queue.peek_front()
+  print_row( 'Peeking...', check )
+  print_row( 'Returns 4...', pass_check( check, 0 ) )
+
+  print 'Peek at front node.'
+  check = queue.peek_rear()
+  print_row( 'Peeking...', check )
+  print_row( 'Returns 4...', pass_check( check, 4 ) )
+
+  display_data( queue )
+
+  print 'Delete from front of queue.'
+  queue.dequeue()
+  check = pass_check( queue.display(), {0: 1, 1: 2, 2: 3, 3: 4} )
+  print_row( 'Deleting first node...', check )
+
+  display_data( queue )
+
+  print 'Delete from rear of queue.'
+  queue.remove_rear()
+  check = pass_check( queue.display(), {0: 1, 1: 2, 2: 3} )
+  print_row( 'Deleting last node...', check )
 
   display_data( queue )
