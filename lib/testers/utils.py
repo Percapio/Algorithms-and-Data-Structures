@@ -43,3 +43,11 @@ def is_true( boolean ):
 def display_data( data ):
   print_row( 'Display all data:', str( data.display() ))
   print ''
+
+def binary_message( binary, key ):
+  tester = binary.search( key )
+  check   = pass_check( binary.search( key ), 'data ' + str( key ) )
+  message = 'Check for ' + str( key ) + '...'
+
+  print_row( message, check )
+  print ''

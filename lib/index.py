@@ -37,5 +37,8 @@ def run_all_functions():
   _data_structures._queue( queue.Queue, 'Queue' )
   _data_structures._double_queue( queue.DoubleQueue, 'Double Queue')
 
+  print 'Binary Tree:'
+  _data_structures._binary( binary_tree.BinaryTree, 'Binary Tree' )
+
 if __name__ == "__main__":
   run_all_functions()

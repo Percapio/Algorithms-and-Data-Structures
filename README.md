@@ -27,9 +27,7 @@ A single repository for Algorithms and Data Strutures written in Python.
 * [List](/lib/data_structures/linked.py)
 * [Stack](/lib/data_structures/stacked.py)
 * [Queue](/lib/data_structures/queue.py)
-* Double-ended Queue
-* Binary Tree
-* Binary Search Tree
+* [Binary Search Tree](/lib/data_structures/binary_tree.py)
 * Trie
 * AVL Tree
 * Suffix Tree

@@ -67,7 +67,7 @@ def _queue( _class, _class_name ):
   print 'Add 4, 3, 2, 1, 0 to back of queue.'
   for i in range( 4, -1, -1 ):
     check = pass_check( queue.enqueue( i ), i )
-    print_row( 'Adding...', check )
+    print_row( 'Adding...', str( i ) )
 
   print 'Peek at front node.'
   check = queue.peek()
@@ -90,12 +90,12 @@ def _double_queue( _class, _class_name ):
   print 'Add 0 thru 2 to front of queue.'
   for i in range( 2, -1, -1 ):
     check = pass_check( queue.add_front( i ), i )
-    print_row( 'Adding...', check )
+    print_row( 'Adding...', str( i ) )
 
   print 'Add 4 thru 3 to back of queue.'
   for i in range( 3, 5 ):
     check = pass_check( queue.enqueue( i ), i )
-    print_row( 'Adding...', check )
+    print_row( 'Adding...', str( i ) )
 
   display_data( queue )
 
@@ -124,3 +124,35 @@ def _double_queue( _class, _class_name ):
   print_row( 'Deleting last node...', check )
 
   display_data( queue )
+
+def _binary( _class, _class_name ):
+  print 'Performing ' + _class_name + ' basic operations:\n'
+  binary = _class()
+
+  print 'Inserting 5 sets of data into tree:'
+  for i in range( 4, -1, -1 ):
+    key   = i * 10
+    data  = 'data ' + str( key )
+
+    binary.insert( key, data )
+    print_row( 'Adding...', data )
+
+  print ''
+
+  print 'Inserting 5 more sets of data intro tree:'
+  for i in range( 8, 4, -1 ):
+    key  = i * 10
+    data = 'data ' + str( key )
+
+    binary.insert( key, data )
+    print_row( 'Adding...', data )
+
+  print ''
+
+  print 'First leaf.'
+  binary_message( binary, 40 )
+
+  print 'Search for data at key...'
+  binary_message( binary, 20 )
+  binary_message( binary, 60 )
+  binary_message( binary, 80 )

@@ -1,1 +1,1 @@
-__all__ = ['linked','stacked','queue']
+__all__ = ['linked','stacked','queue', 'binary_tree']
